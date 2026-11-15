@@ -5,7 +5,7 @@
 
 ---
 
-## 🎨 Design Theme & Aesthetic
+##  Design Theme & Aesthetic
 
 - **Color Scheme:** Soft Blue (`#0284C7`, `#0EA5E9`, `#F0F7FF`) and Warm White (`#FAFBFD`, `#FFFFFF`).
 - **Visual Style:** Minimalist, uncluttered, plenty of whitespace, clean Inter typography, subtle borders (`border-slate-200/80`), soft shadows (`shadow-subtle`), and moderately rounded corners (`rounded-xl`).
@@ -13,7 +13,7 @@
 
 ---
 
-## 🚀 Implemented Sections
+##  Implemented Sections
 
 1. **Dashboard**
    - Welcome banner: "Health Overview", "Welcome back, Commander", Mission `ORION-07` • `DAY 124`.
@@ -55,7 +55,7 @@
 
 ---
 
-## 📁 Compact Code Architecture (12 Application Files)
+## Compact Code Architecture (12 Application Files)
 
 ```text
 src/
@@ -76,7 +76,7 @@ src/
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Framework:** React 18 + TypeScript + Vite
 - **Styling:** Tailwind CSS (Soft Blue & Warm White palette)
