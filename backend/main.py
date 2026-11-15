@@ -8,10 +8,19 @@ from pathlib import Path
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from models import HealthInput, TaskUpdate
 from recommendation_engine import generate
 
 app = FastAPI(title='LunarLife Health Recommendations API', version='1.0.0')
+
+# Local React/Vite development origins. Configure production origins separately.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['http://localhost:5173', 'http://127.0.0.1:5173'],
+    allow_methods=['GET', 'POST', 'PATCH'],
+    allow_headers=['Content-Type'],
+)
 
 DB_PATH = Path(
     os.environ.get(
