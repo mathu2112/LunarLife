@@ -7,11 +7,18 @@ import fs from 'node:fs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outfile = path.join(__dirname, '.test-bundle.mjs');
 
-console.log('Compiling TypeScript analytics tests via esbuild...');
+console.log('Compiling TypeScript test suites via esbuild...');
 
 try {
+  const entryContent = `
+    import './src/analytics/__tests__/analytics.test.ts';
+    import './src/assessment/__tests__/assessment.test.ts';
+  `;
+  const entryFile = path.join(__dirname, '.test-entry.ts');
+  fs.writeFileSync(entryFile, entryContent, 'utf-8');
+
   await build({
-    entryPoints: [path.join(__dirname, 'src/analytics/__tests__/analytics.test.ts')],
+    entryPoints: [entryFile],
     bundle: true,
     platform: 'node',
     format: 'esm',
@@ -22,6 +29,8 @@ try {
       '.json': 'text',
     },
   });
+
+  try { if (fs.existsSync(entryFile)) fs.unlinkSync(entryFile); } catch {}
 
   console.log('Running test suite with Node.js built-in test runner...');
 
