@@ -8,7 +8,7 @@ import { PersonalHealth } from './pages/PersonalHealth';
 import { PredictiveAnalytics } from './pages/PredictiveAnalytics';
 import { HealthRecommendations } from './pages/HealthRecommendations';
 import { Settings } from './pages/Settings';
-
+import { CrewHealth } from './pages/CrewHealth';
 export function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('dashboard');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -44,7 +44,9 @@ export function App() {
     'health-profile-info': 'Personal Health Information',
     'health-profile-analytics': 'Predictive Analytics',
     'health-profile-recommendations': 'Health Recommendations',
-    'settings': 'Settings',
+    'crew-health': 'Crew Health Monitoring',
+    'settings': 'Settings'
+    
   };
 
   const renderActivePage = () => {
@@ -66,8 +68,11 @@ export function App() {
         return <PredictiveAnalytics />;
       case 'health-profile-recommendations':
         return <HealthRecommendations />;
+      case 'crew-health':
+        return <CrewHealth />;
       case 'settings':
         return <Settings astronaut={astronaut} onResetAllData={handleResetAllData} />;
+      
       default:
         return (
           <Dashboard

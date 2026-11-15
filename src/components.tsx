@@ -1,6 +1,8 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import {
   LayoutDashboard,
+  UsersRound,
   Bot,
   UserCheck,
   FileText,
@@ -378,6 +380,23 @@ export function Sidebar({ currentPage, onNavigate, isOpen, onClose, astronaut }:
               </div>
             )}
           </div>
+
+          {/* Crew Health - moved here */}
+          <button
+            onClick={() => handleNavClick('crew-health')}
+            className={`w-full flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              isItemActive('crew-health')
+                ? 'bg-sky-50 text-sky-700 border border-sky-100/80'
+                : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900'
+            }`}
+          >
+            <UsersRound
+              className={`w-4 h-4 mr-3 stroke-[2] ${
+                isItemActive('crew-health') ? 'text-sky-600' : 'text-slate-400'
+              }`}
+            />
+            <span>Crew Health</span>
+          </button>
         </nav>
 
         {/* Bottom Section: Settings & Astronaut Profile */}
